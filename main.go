@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
 	urls := []string{
@@ -9,5 +12,14 @@ func main() {
 		"https://golang.org",
 	}
 
-	fmt.Println(urls)
+
+	for _, url := range urls{
+resp, err := http.Get(url)
+fmt.Println(resp.StatusCode, err)
+	}
+
+	
+
+	
+
 }
